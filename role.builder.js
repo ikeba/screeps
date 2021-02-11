@@ -30,13 +30,11 @@ const roleBuilder = {
             // if no constructionSite is found
             else {
                 // go upgrading the controller
-                console.log('creep ' + creep.name + ' has nothing to do and goes to update controller');
                 roleUpgrader.run(creep);
             }
         }
         // if creep is supposed to get energy
         else {
-            console.log('creep ' + creep.name + ' need energy');
             const source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             if (creep.harvest(source) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});

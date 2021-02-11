@@ -5,7 +5,11 @@ const roleBuilder = require('role.builder');
 const roleRepairer = require('role.repairer')
 const roleWallRepairer = require('role.wallRepairer');
 
+const Role = require("./Role");
+
 module.exports.loop = function () {
+
+    const creeps = [];
 
     for (let name in Memory.creeps) {
         if (!Game.creeps[name]) {
@@ -15,6 +19,10 @@ module.exports.loop = function () {
 
     for (let name in Game.creeps) {
         const creep = Game.creeps[name];
+
+        const module = Role.getModuleByRole(creep.memory.role);
+        creeps.push(new module(creep));
+
         if (creep.memory.role === 'harvester') {
             roleHarvester.run(creep);
         } else if (creep.memory.role === 'upgrader') {
