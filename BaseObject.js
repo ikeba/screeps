@@ -1,7 +1,7 @@
 class BaseObject {
     /**
      *
-     * @param {{gameObject: Object}} props
+     * @param {{gameObject: Creep}} props
      */
     constructor(props) {
         this.gameObject = props.gameObject;

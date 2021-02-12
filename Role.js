@@ -10,7 +10,6 @@ module.exports = class Role {
     }
 
     static getModuleByRole(role) {
-        console.log('role', role);
         switch (role) {
             case Role.roles.HARVESTER: return require('./CreepHarvester');
             case Role.roles.BUILDER: return require('./CreepBuilder');

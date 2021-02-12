@@ -20,8 +20,8 @@ module.exports.loop = function () {
     for (let name in Game.creeps) {
         const creep = Game.creeps[name];
 
-        const module = Role.getModuleByRole(creep.memory.role);
-        creeps.push(new module(creep));
+        // const module = Role.getModuleByRole(creep.memory.role);
+        // creeps.push(new module(creep));
 
         if (creep.memory.role === 'harvester') {
             roleHarvester.run(creep);
@@ -62,6 +62,7 @@ module.exports.loop = function () {
 
     let spawnResult = undefined;
 
+    console.log('--- statistics ---');
     console.log('harvesters: ', numberOfHarvesters + '/' + minimumNumberOfHarvesters);
     console.log('upgraders: ', numberOfUpgraders + '/' + minimumNumberOfUpgraders);
     console.log('repairers: ', numberOfRepairers + '/' + minimumNumberOfRepairers);
